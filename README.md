@@ -30,3 +30,4 @@ Troubleshooting
 ----------
 1). For some instances, you might need to give `recipe` file some permissions. Just execute `sudo chmod +x ./recipe`
 2). I have included `test/stubs/fridge-stub.csv` for a sample `fridge.csv` file that you guys can use
+3). Execute `./recipe help build` to check arguments needed for the console command
