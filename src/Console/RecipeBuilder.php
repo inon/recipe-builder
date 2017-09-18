@@ -8,9 +8,32 @@
  */
 class RecipeBuilder
 {
-    public function __construct()
+    /**
+     * @var array
+     */
+    private $fridgeItems;
+    /**
+     * @var array
+     */
+    private $ingredients;
+
+    /**
+     * RecipeBuilder constructor.
+     *
+     * @param array $fridgeItems
+     * @param array $ingredients
+     */
+    public function __construct(array $fridgeItems, array $ingredients)
     {
-        exit('File:' . __FILE__ . ' Line:' . __LINE__ . ' Function:' . __FUNCTION__);
+        $this->fridgeItems = $fridgeItems;
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipe() : string
+    {
 
     }
 }
