@@ -1,5 +1,7 @@
 <?php
 
+namespace Inon\Console;
+
 /**
  * The RecipeBuilder class.
  *
@@ -34,6 +36,6 @@ class RecipeBuilder
      */
     public function getRecipe() : string
     {
-
+        
     }
 }
