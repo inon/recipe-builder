@@ -8,34 +8,10 @@ namespace Inon\Utilities;
  * @package Inon\Utilities\CsvParser
  * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
-class CsvParser
+class CsvParser extends AbstractParser implements Parser
 {
-    #----------------------------------------------------------------------------------------------
-    # Properties
-    #----------------------------------------------------------------------------------------------
-
     /**
-     * @var string
-     */
-    private $fileName;
-
-    #----------------------------------------------------------------------------------------------
-    # Class Methods
-    #----------------------------------------------------------------------------------------------
-
-    /**
-     * CsvParser constructor.
-     *
-     * @param string $fileName
-     */
-    public function __construct(string $fileName)
-    {
-        $this->fileName = $fileName;
-
-    }
-
-    /**
-     * @return array
+     * {@inheritdoc}
      */
     public function parse() : array
     {

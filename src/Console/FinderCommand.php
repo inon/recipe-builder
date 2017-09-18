@@ -4,6 +4,8 @@ namespace Inon\Console;
 
 use Inon\Utilities\CsvParser;
 use Inon\Console\RecipeBuilder;
+use Inon\Utilities\FileParser;
+use Inon\Utilities\JsonParser;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -38,13 +40,14 @@ class FinderCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $fridgeFile = $input->getArgument('fridge');
-        $recipes = json_decode($input->getArgument('recipes'), true);
+        $recipes = $input->getArgument('recipes');
 
         if (! file_exists($fridgeFile)) {
             throw new \Exception(sprintf('File : %s does not exist', $fridgeFile));
         }
 
         $fridgeItems = (new CsvParser($fridgeFile))->parse();
+        $recipes = (new JsonParser($recipes))->parse();
 
         $recipe = (new RecipeBuilder($fridgeItems, $recipes))->getRecipe();
 
