@@ -64,7 +64,7 @@ class RecipeBuilder
      * @return array
      * @throws InvalidRecipesException
      */
-    private function checkFoundRecipes() : array
+    public function checkFoundRecipes() : array
     {
         $validRecipe = [];
 
