@@ -41,8 +41,8 @@ class CsvParser
     {
         $row = 1;
 
-        if (($handle = fopen($this->fileName, "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        if (($handle = fopen($this->fileName, "r")) !== false) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== false) {
 
                 if ($row <= 1) {
                     $row++;
