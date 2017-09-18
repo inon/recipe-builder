@@ -2,6 +2,8 @@
 
 namespace Inon\Console;
 
+use Inon\Exceptions\InvalidRecipesException;
+
 /**
  * The RecipeBuilder class.
  *
@@ -10,6 +12,16 @@ namespace Inon\Console;
  */
 class RecipeBuilder
 {
+    #----------------------------------------------------------------------------------------------
+    # Constants
+    #----------------------------------------------------------------------------------------------
+
+    const RECIPE_NOT_FOUND = 'Builder was not able to build a recipe';
+
+    #----------------------------------------------------------------------------------------------
+    # Properties
+    #----------------------------------------------------------------------------------------------
+
     /**
      * @var array
      */
@@ -19,6 +31,10 @@ class RecipeBuilder
      * @var array
      */
     private $recipes;
+
+    #----------------------------------------------------------------------------------------------
+    # Class Methods
+    #----------------------------------------------------------------------------------------------
 
     /**
      * RecipeBuilder constructor.
@@ -37,11 +53,16 @@ class RecipeBuilder
      */
     public function getRecipe() : string
     {
-        echo __FILE__ . '= line ' . __LINE__; echo '<pre>'; print_r($this->checkFoundRecipes()); echo '</pre><br/>';exit();
+        if (empty($this->checkFoundRecipes())) {
+            return self::RECIPE_NOT_FOUND;
+        }
+
+        return $this->checkFoundRecipes()[0]['name'];
     }
 
     /**
      * @return array
+     * @throws InvalidRecipesException
      */
     private function checkFoundRecipes() : array
     {
@@ -50,10 +71,16 @@ class RecipeBuilder
         foreach($this->recipes as $recipe) {
             $foundIngredients = [];
 
-            foreach ($recipe['ingredients'] as $ingredient) {
-                if (isset($this->fridgeItems[$ingredient['item']])) {
+            if (! isset($recipe['ingredients']) || empty($recipe['ingredients'])) {
+                throw new InvalidRecipesException;
+            }
 
-                    $fridgeItem = $this->fridgeItems[$ingredient['item']];
+            foreach ($recipe['ingredients'] as $ingredient) {
+                $item = str_replace(' ', '', $ingredient['item']);
+
+                if (isset($this->fridgeItems[$item])) {
+
+                    $fridgeItem = $this->fridgeItems[$item];
 
                     if (
                         (int) $ingredient['amount'] <= (int) $fridgeItem['amount']
