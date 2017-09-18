@@ -16,7 +16,7 @@ class RecipeBuilder
     # Constants
     #----------------------------------------------------------------------------------------------
 
-    const RECIPE_NOT_FOUND = 'Builder was not able to build a recipe';
+    const RECIPE_NOT_FOUND = 'Order Takeout';
 
     #----------------------------------------------------------------------------------------------
     # Properties
@@ -82,9 +82,7 @@ class RecipeBuilder
 
                     $fridgeItem = $this->fridgeItems[$item];
 
-                    if (
-                        (int) $ingredient['amount'] <= (int) $fridgeItem['amount']
-                    ) {
+                    if ((int) $ingredient['amount'] <= (int) $fridgeItem['amount']) {
                         $foundIngredients[] = $fridgeItem;
                     }
                 }
@@ -108,7 +106,8 @@ class RecipeBuilder
      *
      * @return false|int
      */
-    function sortFunction(array $current, array $next) {
+    private function sortFunction(array $current, array $next)
+    {
         return strtotime($current["useby"]) - strtotime($next["useby"]);
     }
 }
