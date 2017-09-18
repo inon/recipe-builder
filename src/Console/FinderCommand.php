@@ -40,7 +40,7 @@ class FinderCommand extends Command
         }
 
         $fridgeItems = (new CsvParser($fridgeFile))->parse();
-        
+
 
         // $output->writeln('Fridge: ' . $fridgeFile);
         // $output->writeln('Ingredients: ' . $ingredients);

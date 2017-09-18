@@ -50,6 +50,6 @@ class CsvParser
             fclose($handle);
         }
 
-        return $items
+        return $items;
     }
 }
