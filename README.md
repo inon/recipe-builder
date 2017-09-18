@@ -29,3 +29,4 @@ This assumes you have a valid `fridge.csv` file
 Troubleshooting
 ----------
 1). For some instances, you might need to give `recipe` file some permissions. Just execute `sudo chmod +x ./recipe`
+2). Included `test/stubs/fridge-stub.csv` for a sample `fridge.csv` file that you guys can use
