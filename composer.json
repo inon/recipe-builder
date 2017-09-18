@@ -21,7 +21,6 @@
     },
     "require": {
         "php": ">=7.0.0",
-        "maatwebsite/excel": "^2.1",
         "symfony/console": "^3.3"
     },
     "require-dev": {
