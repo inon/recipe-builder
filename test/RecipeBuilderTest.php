@@ -4,6 +4,7 @@ namespace Inon\Test;
 
 use Inon\Console\RecipeBuilder;
 use Inon\Utilities\CsvParser;
+use Inon\Utilities\JsonParser;
 
 /**
  * The RecipeBuilderTest class.
@@ -25,9 +26,11 @@ class RecipeBuilderTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         parent::setUp();
-        $fridgeItems = (new CsvParser(__DIR__ . '/stubs/fridge-stub.csv'))->parse();
 
-        $this->recipeBuilder = new RecipeBuilder($fridgeItems, $this->getSampleRecipes());
+        $this->recipeBuilder = new RecipeBuilder(
+            (new CsvParser(__DIR__ . '/stubs/fridge-stub.csv'))->parse(),
+            (new JsonParser(__DIR__ . '/stubs/recipes.json'))->parse()
+        );
     }
 
     public function testGetRecipe()
@@ -41,44 +44,5 @@ class RecipeBuilderTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(2, $recipes);
         $this->assertArrayHasKey('name', $recipes[0]);
-    }
-
-    /**
-     * @return array
-     */
-    private function getSampleRecipes() : array
-    {
-        return [
-            [
-                'name' => 'grilledcheeseontoast',
-                'ingredients' => [
-                    [
-                        'item' => 'bread',
-                        'amount' => 2,
-                        'unit' => 'slices'
-                    ],
-                    [
-                        'item' => 'cheese',
-                        'amount' => 2,
-                        'unit' => 'slices'
-                    ],
-                ],
-            ],
-            [
-                'name' => 'saladsandwich',
-                'ingredients' => [
-                    [
-                        'item' => 'bread',
-                        'amount' => 2,
-                        'unit' => 'slices'
-                    ],
-                    [
-                        'item' => 'mixed salad',
-                        'amount' => 2,
-                        'unit' => 'grams'
-                    ],
-                ],
-            ]
-        ];
     }
 }
