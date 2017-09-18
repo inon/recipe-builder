@@ -51,8 +51,10 @@ class RecipeBuilder
             $foundIngredients = [];
 
             foreach ($recipe['ingredients'] as $ingredient) {
-                if (isset($items[$ingredient['item']])) {
-                    $fridgeItem = $items[$ingredient['item']];
+                if (isset($this->fridgeItems[$ingredient['item']])) {
+
+                    $fridgeItem = $this->fridgeItems[$ingredient['item']];
+
                     if (
                         (int) $ingredient['amount'] <= (int) $fridgeItem['amount']
                     ) {
@@ -69,7 +71,7 @@ class RecipeBuilder
         }
 
         usort($validRecipe, [self::class,'sortFunction']);
-        
+
         return $validRecipe;
     }
 
