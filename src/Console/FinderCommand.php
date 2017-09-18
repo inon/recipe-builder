@@ -17,6 +17,10 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class FinderCommand extends Command
 {
+    #----------------------------------------------------------------------------------------------
+    # Class Methods
+    #----------------------------------------------------------------------------------------------
+
     /**
      * {@inheritdoc}
      */
@@ -33,7 +37,6 @@ class FinderCommand extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-
         $fridgeFile = $input->getArgument('fridge');
         $recipes = json_decode($input->getArgument('recipes'), true);
 
@@ -44,6 +47,8 @@ class FinderCommand extends Command
         $fridgeItems = (new CsvParser($fridgeFile))->parse();
 
         $recipe = (new RecipeBuilder($fridgeItems, $recipes))->getRecipe();
-        $output->writeln('Recipe is : ' . $recipe);
+
+        $output->writeln('------ OUTPUT ------');
+        $output->writeln($recipe);
     }
 }
