@@ -41,7 +41,7 @@ class CsvParser
                     continue;
                 }
 
-                $items[$data[0]] = [
+                $items[str_replace(' ', '', $data[0])] = [
                     'amount' => $data[1],
                     'unit' => $data[2],
                     'useby' => $data[3]
