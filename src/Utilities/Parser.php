@@ -6,7 +6,7 @@ namespace Inon\Utilities;
  * The ParserInterface class.
  *
  * @package Inon\Utilities
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 interface Parser
 {
