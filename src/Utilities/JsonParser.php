@@ -11,7 +11,6 @@ namespace Inon\Utilities;
  */
 class JsonParser extends AbstractParser implements Parser
 {
-
     /**
      * {@inheritdoc}
      */
