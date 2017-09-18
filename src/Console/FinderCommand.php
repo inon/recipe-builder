@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * The RecipeBuilder class.
  *
  * @package Inon\Console\FinderCommand
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class FinderCommand extends Command
 {

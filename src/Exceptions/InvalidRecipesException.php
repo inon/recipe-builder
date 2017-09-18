@@ -6,7 +6,7 @@ namespace Inon\Exceptions;
  * The InvalidRecipesException class.
  *
  * @package Inon\Exceptions
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class InvalidRecipesException extends \Exception
 {

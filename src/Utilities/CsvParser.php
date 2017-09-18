@@ -6,7 +6,7 @@ namespace Inon\Utilities;
  * The CsvParser class.
  *
  * @package Inon\Utilities\CsvParser
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class CsvParser
 {

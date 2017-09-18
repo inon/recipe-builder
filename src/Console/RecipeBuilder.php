@@ -8,7 +8,7 @@ use Inon\Exceptions\InvalidRecipesException;
  * The RecipeBuilder class.
  *
  * @package Inon\Console\RecipeBuilder
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class RecipeBuilder
 {
