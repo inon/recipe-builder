@@ -14,21 +14,22 @@ class RecipeBuilder
      * @var array
      */
     private $fridgeItems;
+
     /**
      * @var array
      */
-    private $ingredients;
+    private $recipes;
 
     /**
      * RecipeBuilder constructor.
      *
      * @param array $fridgeItems
-     * @param array $ingredients
+     * @param array $recipes
      */
-    public function __construct(array $fridgeItems, array $ingredients)
+    public function __construct(array $fridgeItems, array $recipes)
     {
         $this->fridgeItems = $fridgeItems;
-        $this->ingredients = $ingredients;
+        $this->recipes = $recipes;
     }
 
     /**
@@ -36,6 +37,49 @@ class RecipeBuilder
      */
     public function getRecipe() : string
     {
+        echo __FILE__ . '= line ' . __LINE__; echo '<pre>'; print_r($this->checkFoundRecipes()); echo '</pre><br/>';exit();
+    }
+
+    /**
+     * @return array
+     */
+    private function checkFoundRecipes() : array
+    {
+        $validRecipe = [];
+
+        foreach($this->recipes as $recipe) {
+            $foundIngredients = [];
+
+            foreach ($recipe['ingredients'] as $ingredient) {
+                if (isset($items[$ingredient['item']])) {
+                    $fridgeItem = $items[$ingredient['item']];
+                    if (
+                        (int) $ingredient['amount'] <= (int) $fridgeItem['amount']
+                    ) {
+                        $foundIngredients[] = $fridgeItem;
+                    }
+                }
+            }
+
+            if (count($foundIngredients) === count($recipe['ingredients'])) {
+                usort($foundIngredients, [self::class,'sortFunction']);
+                $recipe['useby'] = $foundIngredients[0]['useby'];
+                $validRecipe[] = $recipe;
+            }
+        }
+
+        usort($validRecipe, [self::class,'sortFunction']);
         
+        return $validRecipe;
+    }
+
+    /**
+     * @param array $current
+     * @param array $next
+     *
+     * @return false|int
+     */
+    function sortFunction(array $current, array $next) {
+        return strtotime($current["useby"]) - strtotime($next["useby"]);
     }
 }

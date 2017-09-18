@@ -25,7 +25,7 @@ class FinderCommand extends Command
         $this->setName('build')
             ->setDescription('Builds Recipe based on fridge.csv and ingredients.json')
             ->addArgument('fridge', InputArgument::REQUIRED, 'Relative path of the fridge.csv')
-            ->addArgument('ingredients', InputArgument::REQUIRED, 'JSON string of ingredients');
+            ->addArgument('recipes', InputArgument::REQUIRED, 'JSON string of recipes');
     }
 
     /**
@@ -35,7 +35,7 @@ class FinderCommand extends Command
     {
 
         $fridgeFile = $input->getArgument('fridge');
-        $ingredients = json_decode($input->getArgument('ingredients'));
+        $recipes = json_decode($input->getArgument('recipes'), true);
 
         if (! file_exists($fridgeFile)) {
             throw new \Exception(sprintf('File : %s does not exist', $fridgeFile));
@@ -43,7 +43,7 @@ class FinderCommand extends Command
 
         $fridgeItems = (new CsvParser($fridgeFile))->parse();
 
-        $recipe = (new RecipeBuilder($fridgeItems, $ingredients))->getRecipe();
+        $recipe = (new RecipeBuilder($fridgeItems, $recipes))->getRecipe();
         $output->writeln('Recipe is : ' . $recipe);
     }
 }
