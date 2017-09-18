@@ -1,6 +1,6 @@
 # recipe-builder
 
-Clone
+Build/Install
 -------
 
 ```
