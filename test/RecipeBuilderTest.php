@@ -25,7 +25,7 @@ class RecipeBuilderTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         parent::setUp();
-        $fridgeItems = (new CsvParser(__DIR__ . '/stubs/fridge.csv'))->parse();
+        $fridgeItems = (new CsvParser(__DIR__ . '/stubs/fridge-stub.csv'))->parse();
 
         $this->recipeBuilder = new RecipeBuilder($fridgeItems, $this->getSampleRecipes());
     }
