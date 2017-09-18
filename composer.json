@@ -1,0 +1,30 @@
+{
+    "name": "inon/recipe-finder",
+    "license": "MIT",
+    "description": "WordWrap Library",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Inon Baguio",
+            "email": "inon.baguio@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Inon\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inon\\Test\\": "test/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "maatwebsite/excel": "^2.1",
+        "symfony/console": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    }
+}

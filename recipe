@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Inon\Console\FinderCommand;
+
+
+require 'vendor/autoload.php';
+
+$app = new Application('Recipe Finder', '1.0.0');
+
+$app->add(new FinderCommand);
+
+$app->run();
+
