@@ -21,8 +21,7 @@ Sample command to execute
 This assumes you have a valid `fridge.csv` file
 
 ```
-./recipe build fridge.csv '[{"name":"grilledcheeseontoast","ingredients":[{"item":"bread","amount":2,"unit":"slices"},{"item":"cheese","amount":2,"unit":"slices"}]},{"name":"saladsandwich","ingredients":[{"item":"bread","amount":2,"unit":"slices"},{"item":"mixed salad","amount":2,"unit":"grams"}]}]'
-
+./recipe build fridge.csv recipes.json
 ```
 
 
@@ -31,6 +30,6 @@ Troubleshooting
 ----------
 1). For some instances, you might need to give `recipe` file some permissions. Just execute `sudo chmod +x ./recipe`
 
-2). I have included `test/stubs/fridge-stub.csv` for a sample `fridge.csv` file that you guys can use
+2). I have included `test/stubs/fridge-stub.csv`,`test/stubs/recipes.json` for sample stub files that you can use
 
 3). Execute `./recipe help build` to check arguments needed for the console command
