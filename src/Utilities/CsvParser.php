@@ -16,6 +16,7 @@ class CsvParser extends AbstractParser implements Parser
     public function parse() : array
     {
         $row = 1;
+        $items = [];
 
         if (($handle = fopen($this->fileName, 'r')) !== false) {
             while (($data = fgetcsv($handle, 1000, ',')) !== false) {
