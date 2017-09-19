@@ -4,7 +4,6 @@ namespace Inon\Console;
 
 use Inon\Utilities\CsvParser;
 use Inon\Console\RecipeBuilder;
-use Inon\Utilities\FileParser;
 use Inon\Utilities\JsonParser;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
