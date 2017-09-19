@@ -42,10 +42,6 @@ class FinderCommand extends Command
         $fridgeFile = $input->getArgument('fridge');
         $recipes = $input->getArgument('recipes');
 
-        if (! file_exists($fridgeFile)) {
-            throw new \Exception(sprintf('File : %s does not exist', $fridgeFile));
-        }
-
         $fridgeItems = (new CsvParser($fridgeFile))->parse();
         $recipes = (new JsonParser($recipes))->parse();
 

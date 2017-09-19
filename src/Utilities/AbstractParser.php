@@ -2,6 +2,8 @@
 
 namespace Inon\Utilities;
 
+use Inon\Exceptions\FileNotFoundException;
+
 /**
  * The AbstractParser class.
  *
@@ -28,12 +30,12 @@ class AbstractParser
      *
      * @param string $fileName
      *
-     * @throws \Exception
+     * @throws FileNotFoundException
      */
     public function __construct(string $fileName)
     {
         if (! file_exists($fileName)) {
-            throw new \Exception(sprintf('File : %s does not exist', $fileName));
+            throw new FileNotFoundException($fileName);
         }
 
         $this->fileName = $fileName;
