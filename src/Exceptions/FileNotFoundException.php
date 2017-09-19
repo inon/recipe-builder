@@ -6,7 +6,7 @@ namespace Inon\Exceptions;
  * The FileNotFoundException class.
  *
  * @package Inon\Exceptions\FileNotFoundException
- * @author  Inon Baguio <inon@vroomvroomvroom.com.au>
+ * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class FileNotFoundException extends \Exception
 {
