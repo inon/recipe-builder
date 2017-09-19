@@ -39,11 +39,8 @@ class FinderCommand extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $fridgeFile = $input->getArgument('fridge');
-        $recipes = $input->getArgument('recipes');
-
-        $fridgeItems = (new CsvParser($fridgeFile))->parse();
-        $recipes = (new JsonParser($recipes))->parse();
+        $fridgeItems = (new CsvParser($input->getArgument('fridge')))->parse();
+        $recipes = (new JsonParser($input->getArgument('recipes')))->parse();
 
         $recipe = (new RecipeBuilder($fridgeItems, $recipes))->getRecipe();
 
