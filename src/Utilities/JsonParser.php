@@ -6,7 +6,7 @@ namespace Inon\Utilities;
 /**
  * The JsonParser class.
  *
- * @package Inon\Utilities
+ * @package Inon\Utilities\JsonParser
  * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class JsonParser extends AbstractParser implements Parser

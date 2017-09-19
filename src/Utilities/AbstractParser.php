@@ -5,7 +5,7 @@ namespace Inon\Utilities;
 /**
  * The AbstractParser class.
  *
- * @package Inon\Utilities
+ * @package Inon\Utilities\AbstractParser
  * @author  Inon Baguio <inon.baguio@yahoo.com>
  */
 class AbstractParser
