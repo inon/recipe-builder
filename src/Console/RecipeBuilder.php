@@ -90,13 +90,13 @@ class RecipeBuilder
             }
 
             if (count($foundIngredients) === count($recipe['ingredients'])) {
-                usort($foundIngredients, [self::class,'sortFunction']);
+                usort($foundIngredients, [self::class, 'sortRecipeByDate']);
                 $recipe['useby'] = $foundIngredients[0]['useby'];
                 $validRecipe[] = $recipe;
             }
         }
 
-        usort($validRecipe, [self::class,'sortFunction']);
+        usort($validRecipe, [self::class, 'sortRecipeByDate']);
 
         return $validRecipe;
     }
@@ -107,7 +107,7 @@ class RecipeBuilder
      *
      * @return false|int
      */
-    private function sortFunction(array $current, array $next)
+    private function sortRecipeByDate(array $current, array $next)
     {
         return strtotime($current["useby"]) - strtotime($next["useby"]);
     }
