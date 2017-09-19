@@ -18,8 +18,6 @@ How to use
 Sample command to execute
 ---------------
 
-This assumes you have a valid `fridge.csv` file
-
 ```
 ./recipe build fridge.csv recipes.json
 ```
