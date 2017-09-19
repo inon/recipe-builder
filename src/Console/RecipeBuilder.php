@@ -78,13 +78,14 @@ class RecipeBuilder
             foreach ($recipe['ingredients'] as $ingredient) {
                 $item = str_replace(' ', '', $ingredient['item']);
 
-                if (isset($this->fridgeItems[$item])) {
+                if (! isset($this->fridgeItems[$item])) {
+                    continue;
+                }
 
-                    $fridgeItem = $this->fridgeItems[$item];
+                $fridgeItem = $this->fridgeItems[$item];
 
-                    if ((int) $ingredient['amount'] <= (int) $fridgeItem['amount']) {
-                        $foundIngredients[] = $fridgeItem;
-                    }
+                if ((int) $ingredient['amount'] <= (int) $fridgeItem['amount']) {
+                    $foundIngredients[] = $fridgeItem;
                 }
             }
 
